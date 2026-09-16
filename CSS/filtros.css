@@ -1,0 +1,28 @@
+/* ==========================================================
+   LumosCam - Filtros e Modais
+============================================================= */
+
+/* Oculta a barra de rolagem mas permite o scroll */
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none; 
+}
+
+/* Efeito magnético suave ao rolar fotos de exemplo */
+.snap-x {
+  scroll-snap-type: x mandatory;
+}
+.snap-x > img {
+  scroll-snap-align: start;
+}
+
+/* Pop-up Toast de Sucesso */
+.store-toast {
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+.store-toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

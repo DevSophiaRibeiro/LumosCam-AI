@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LumosCam - Galeria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/CSS/galeria.css" />
+</head>
+<body class="bg-neutral-950 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
+
+  <div class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-white shadow-[0_0_60px_rgba(0,0,0,0.6)] sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col">
+
+    <main class="flex-1 overflow-hidden relative flex flex-col bg-slate-50">
+
+      <!-- Header da Galeria com Ícone Maior e Sem Moldura -->
+      <header class="relative overflow-hidden bg-white border-b border-slate-100 shrink-0 shadow-sm z-10">
+        <div class="relative px-5 pt-6 pb-4 flex items-center gap-4">
+          
+          <!-- Ícone Sem Moldura + Blur de Fundo -->
+          <div class="relative flex items-center justify-center shrink-0">
+            <!-- Blur suave de fundo (branco/azulado) -->
+            <div class="absolute inset-0 bg-blue-400/20 blur-xl rounded-full pointer-events-none"></div>
+            <!-- Ícone Maior -->
+            <img src="/img/logo.png" alt="LumosCam Logo" class="relative w-[72px] h-[72px] object-contain drop-shadow-sm" style="width: 100px;" />
+          </div>
+          
+          <div class="flex-1 min-w-0">
+            <h1 class="truncate text-[#0f2441] font-bold text-[22px] leading-tight mb-0.5">Sua Galeria</h1>
+            <p class="text-[13px] text-[#4878b4] font-medium tracking-tight">Organizada pela Inteligência Artificial</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Filtros -->
+      <div id="filters" class="filters-scroll flex gap-2 px-4 pt-3 pb-4 overflow-x-auto shrink-0 bg-slate-50 border-b border-slate-100"></div>
+
+      <!-- Grid -->
+      <div class="flex-1 overflow-y-auto px-1 pb-2 bg-slate-50">
+        <div id="gallery-grid" class="grid grid-cols-3 gap-1"></div>
+        <p id="empty-msg" class="hidden text-center text-slate-400 mt-12 text-sm font-medium">Nenhuma foto nesta categoria.</p>
+      </div>
+
+    </main>
+
+    <!-- Nav Bar Fiel ao estilo Light com 5 Itens -->
+    <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
+      <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="home" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Início</span>
+      </a>
+      <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Filtros</span>
+      </a>
+      <a href="camera.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="camera" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Câmera</span>
+      </a>
+      <a href="comunidade.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+        <i data-lucide="users" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Comunidade</span>
+      </a>
+      <a href="galeria.html" class="flex flex-col items-center justify-center w-14 gap-1 text-[#0f2441] transition-colors">
+        <i data-lucide="image" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-bold">Galeria</span>
+      </a>
+    </nav>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6">
+      <button id="lightbox-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+      <button id="lightbox-prev" class="absolute left-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+        <i data-lucide="chevron-left" class="w-6 h-6"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full rounded-lg object-contain shadow-2xl" />
+      <button id="lightbox-next" class="absolute right-3 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors">
+        <i data-lucide="chevron-right" class="w-6 h-6"></i>
+      </button>
+      <span id="lightbox-category" class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/50 text-white text-sm px-4 py-1.5 rounded-full backdrop-blur-md border border-white/10"></span>
+    </div>
+
+  </div>
+
+  <script src="/JS/galeria.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

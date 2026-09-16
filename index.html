@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LumosCam - Início</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-neutral-950 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-sans">
+
+  <div class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-slate-900 text-white shadow-[0_0_60px_rgba(0,0,0,0.6)] sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col">
+    
+    <main class="flex-1 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-blue-950 to-slate-950 relative">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516339901601-2e1b62dc0c45?w=800')] bg-cover bg-center opacity-[0.07]"></div>
+      
+      <div class="z-10 flex flex-col items-center w-full mt-4">
+        
+        <!-- LOGO AUMENTADA SEM MOLDURA COM EFEITO BLUR DE DESTAQUE -->
+        <div class="mb-10 w-80 max-w-[90%] relative flex justify-center items-center">
+          <!-- Efeito Blur Branco e Azul de Fundo -->
+          <div class="absolute w-48 h-20 bg-white/20 blur-3xl rounded-full pointer-events-none"></div>
+          <div class="absolute w-36 h-16 bg-blue-400/20 blur-2xl rounded-full pointer-events-none"></div>
+          
+          <!-- Imagem da Logo -->
+          <img src="/img/logo.png" alt="LumosCam Logo" class="relative w-full h-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)]" />
+        </div>
+        
+        <p class="text-blue-100/90 mb-12 max-w-[280px] text-[15px] leading-relaxed">Sua câmera inteligente. Eleve sua fotografia com ajustes de IA e filtros contextuais.</p>
+        
+        <a href="camera.html" class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-[17px] shadow-[0_10px_25px_rgba(37,99,235,0.4)] hover:scale-105 active:scale-95 transition-transform flex items-center gap-3 w-full max-w-[280px] justify-center">
+          <i data-lucide="camera" class="w-5 h-5"></i>
+          Iniciar Câmera
+        </a>
+      </div>
+    </main>
+
+    <!-- Nav Bar Escura com 5 itens -->
+    <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-slate-950 border-t border-slate-800/80 shrink-0 z-20 relative">
+      <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-blue-500">
+        <i data-lucide="home" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Início</span>
+      </a>
+      <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+        <i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Filtros</span>
+      </a>
+      <a href="camera.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+        <i data-lucide="camera" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Câmera</span>
+      </a>
+      <a href="comunidade.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+        <i data-lucide="users" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Comunidade</span>
+      </a>
+      <a href="galeria.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-500 hover:text-slate-300 transition-colors">
+        <i data-lucide="image" class="w-[22px] h-[22px]"></i>
+        <span class="text-[10px] font-medium">Galeria</span>
+      </a>
+    </nav>
+  </div>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>
