@@ -11,12 +11,10 @@
 </head>
 <body class="bg-slate-200 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
 
-  <!-- Container Simulador de Smartphone (com borda e sombra suaves) -->
   <div class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-white sm:shadow-2xl sm:border sm:border-slate-300 sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col">
 
     <main class="flex-1 overflow-hidden relative flex flex-col bg-slate-50">
 
-      <!-- Header Azul Padronizado -->
       <header class="relative overflow-hidden bg-blue-600 text-white shrink-0">
         <div class="absolute -top-16 -right-12 w-48 h-48 rounded-full bg-blue-400/30 blur-2xl pointer-events-none"></div>
         <div class="absolute -bottom-20 -left-10 w-44 h-44 rounded-full bg-blue-300/20 blur-2xl pointer-events-none"></div>
@@ -38,10 +36,8 @@
         </div>
       </header>
 
-      <!-- Filtros -->
       <div id="filters" class="filters-scroll flex gap-2 px-4 pt-3 pb-4 overflow-x-auto shrink-0 bg-slate-50 border-b border-slate-100"></div>
 
-      <!-- Grid -->
       <div class="flex-1 overflow-y-auto px-1 pb-2 bg-slate-50">
         <div id="gallery-grid" class="grid grid-cols-3 gap-1"></div>
         <p id="empty-msg" class="hidden text-center text-slate-400 mt-12 text-sm font-medium">Nenhuma foto nesta categoria.</p>
@@ -49,7 +45,6 @@
 
     </main>
 
-    <!-- Nav Bar Fiel ao estilo Light com 5 Itens -->
     <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
       <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
         <i data-lucide="home" class="w-[22px] h-[22px]"></i>
@@ -73,7 +68,6 @@
       </a>
     </nav>
 
-    <!-- Lightbox -->
     <div id="lightbox" class="hidden fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-6">
       <button id="lightbox-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors">
         <i data-lucide="x" class="w-6 h-6"></i>
@@ -90,7 +84,7 @@
 
   </div>
 
-  <script src="/JS/galeria.js"></script>
+  <script src="./JS/galeria.js"></script>
   <script>lucide.createIcons();</script>
 </body>
 </html>

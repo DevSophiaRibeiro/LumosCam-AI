@@ -10,7 +10,7 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/filtros.css" />
+  <link rel="stylesheet" href="./CSS/filtros.css" />
 </head>
 <body class="bg-slate-200 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
 
@@ -18,7 +18,7 @@
 
     <main class="flex-1 overflow-hidden relative flex flex-col bg-white">
       
-      <!-- Header Azul Padronizado -->
+
       <header class="relative overflow-hidden bg-blue-600 text-white shrink-0">
         <div class="absolute -top-16 -right-12 w-48 h-48 rounded-full bg-blue-400/30 blur-2xl pointer-events-none"></div>
         <div class="absolute -bottom-20 -left-10 w-44 h-44 rounded-full bg-blue-300/20 blur-2xl pointer-events-none"></div>
@@ -41,11 +41,11 @@
       </header>
 
       <div id="community-list" class="flex-1 overflow-y-auto px-4 py-4 space-y-3 scrollbar-hide">
-        <!-- Renderizado dinamicamente via JS -->
+
       </div>
     </main>
 
-    <!-- MODAL DE DETALHES -->
+
     <div id="filterModal" class="absolute inset-0 z-[100] hidden flex-col justify-end pointer-events-none">
       <div id="modalOverlay" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-auto"></div>
       
@@ -85,13 +85,11 @@
       </div>
     </div>
 
-    <!-- Toast -->
     <div id="storeToast" class="store-toast absolute left-1/2 bottom-24 z-50 bg-slate-900/95 text-white text-[13px] px-4 py-2.5 rounded-xl border border-white/12 shadow-2xl flex items-center gap-2 whitespace-nowrap">
       <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-400"></i>
       <span id="toastMsg">Filtro adicionado!</span>
     </div>
 
-    <!-- Nav Bar -->
     <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
       <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors"><i data-lucide="home" class="w-[22px] h-[22px]"></i><span class="text-[10px] font-medium">Início</span></a>
       <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-[#0f2441] transition-colors"><i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i><span class="text-[10px] font-bold">Filtros</span></a>
@@ -101,7 +99,7 @@
     </nav>
   </div>
 
-  <script src="JS/filtros.js"></script>
+  <script src="./JS/filtros.js"></script>
   <script>lucide.createIcons();</script>
 </body>
 </html>

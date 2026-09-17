@@ -7,23 +7,24 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Bootstrap Icons para o topo -->
   <link
     rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
   />
   
-  <!-- Lucide Icons para a Nav -->
   <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/CSS/CommunityView.css" />
+  <link rel="stylesheet" href="./CSS/CommunityView.css" />
 </head>
-<body class="bg-slate-200 min-h-screen flex items-center justify-center p-0 sm:p-6">
+<body class="bg-slate-200 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
 
-  <!-- Corrigido o fechamento da tag (>) que faltava aqui -->
+
   <div
     id="app-frame"
-    class="w-full max-w-md h-[100dvh] sm:h-[844px] bg-white overflow-hidden relative sm:rounded-[2.5rem] sm:border sm:border-slate-300 sm:shadow-2xl flex flex-col"
+    class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-white sm:shadow-2xl sm:border sm:border-slate-300 sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col"
   >
 
     <div id="community-view" class="h-full bg-white flex flex-col relative">
@@ -173,38 +174,35 @@
         aria-live="assertive"
       ></div>
 
-     <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
-  <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
-    <i data-lucide="home" class="w-[22px] h-[22px]"></i>
-    <span class="text-[10px] font-medium">Início</span>
-  </a>
-  <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
-    <i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i>
-    <span class="text-[10px] font-medium">Filtros</span>
-  </a>
-  <a href="camera.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
-    <i data-lucide="camera" class="w-[22px] h-[22px]"></i>
-    <span class="text-[10px] font-medium">Câmera</span>
-  </a>
-  <!-- ITEM ATIVO: Comunidade -->
-  <a href="comunidade.html" class="flex flex-col items-center justify-center w-14 gap-1 text-[#0f2441] transition-colors">
-    <i data-lucide="users" class="w-[22px] h-[22px]"></i>
-    <span class="text-[10px] font-bold">Comunidade</span>
-  </a>
-  <!-- ITEM INATIVO: Galeria -->
-  <a href="galeria.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
-    <i data-lucide="image" class="w-[22px] h-[22px]"></i>
-    <span class="text-[10px] font-medium">Galeria</span>
-  </a>
-</nav>
+      <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
+        <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+          <i data-lucide="home" class="w-[22px] h-[22px]"></i>
+          <span class="text-[10px] font-medium">Início</span>
+        </a>
+        <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+          <i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i>
+          <span class="text-[10px] font-medium">Filtros</span>
+        </a>
+        <a href="camera.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+          <i data-lucide="camera" class="w-[22px] h-[22px]"></i>
+          <span class="text-[10px] font-medium">Câmera</span>
+        </a>
+        <a href="comunidade.html" class="flex flex-col items-center justify-center w-14 gap-1 text-[#0f2441] transition-colors">
+          <i data-lucide="users" class="w-[22px] h-[22px]"></i>
+          <span class="text-[10px] font-bold">Comunidade</span>
+        </a>
+        <a href="galeria.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+          <i data-lucide="image" class="w-[22px] h-[22px]"></i>
+          <span class="text-[10px] font-medium">Galeria</span>
+        </a>
+      </nav>
 
     </div>
 
   </div>
 
-  <script src="/JS/CommunityView.js"></script>
+  <script src="./JS/CommunityView.js"></script>
   <script>
-    // Inicializa os ícones do Lucide
     lucide.createIcons();
   </script>
 </body>
