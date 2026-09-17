@@ -28,6 +28,6 @@ lumoscam-galeria/
 - Grade de fotos que se atualiza conforme a categoria selecionada
 - Cada foto recebe um filtro de cor (brilho, contraste, saturação) diferente
   de acordo com a categoria, simulando o processamento automático do app
-- Barra de navegação inferior (Câmera, Filtros, Comunidade, Galeria, Store)
+- Barra de navegação inferior (Câmera, Filtros, Comunidade, Galeria)
 
 
