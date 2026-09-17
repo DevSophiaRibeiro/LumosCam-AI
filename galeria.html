@@ -9,27 +9,31 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/CSS/galeria.css" />
 </head>
-<body class="bg-neutral-950 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
+<body class="bg-slate-200 sm:flex sm:items-center sm:justify-center min-h-screen m-0 font-['Inter']">
 
-  <div class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-white shadow-[0_0_60px_rgba(0,0,0,0.6)] sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col">
+  <!-- Container Simulador de Smartphone (com borda e sombra suaves) -->
+  <div class="relative w-full max-w-[480px] h-[100dvh] mx-auto overflow-hidden bg-white sm:shadow-2xl sm:border sm:border-slate-300 sm:h-[min(100dvh,900px)] sm:rounded-[36px] flex flex-col">
 
     <main class="flex-1 overflow-hidden relative flex flex-col bg-slate-50">
 
-      <!-- Header da Galeria com Ícone Maior e Sem Moldura -->
-      <header class="relative overflow-hidden bg-white border-b border-slate-100 shrink-0 shadow-sm z-10">
-        <div class="relative px-5 pt-6 pb-4 flex items-center gap-4">
-          
-          <!-- Ícone Sem Moldura + Blur de Fundo -->
-          <div class="relative flex items-center justify-center shrink-0">
-            <!-- Blur suave de fundo (branco/azulado) -->
-            <div class="absolute inset-0 bg-blue-400/20 blur-xl rounded-full pointer-events-none"></div>
-            <!-- Ícone Maior -->
-            <img src="/img/logo.png" alt="LumosCam Logo" class="relative w-[72px] h-[72px] object-contain drop-shadow-sm" style="width: 100px;" />
+      <!-- Header Azul Padronizado -->
+      <header class="relative overflow-hidden bg-blue-600 text-white shrink-0">
+        <div class="absolute -top-16 -right-12 w-48 h-48 rounded-full bg-blue-400/30 blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -left-10 w-44 h-44 rounded-full bg-blue-300/20 blur-2xl pointer-events-none"></div>
+
+        <div class="relative px-4 pt-6 pb-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/15 backdrop-blur border border-white/20 shrink-0">
+            <i data-lucide="image" class="w-5 h-5 text-white"></i>
           </div>
-          
+
           <div class="flex-1 min-w-0">
-            <h1 class="truncate text-[#0f2441] font-bold text-[22px] leading-tight mb-0.5">Sua Galeria</h1>
-            <p class="text-[13px] text-[#4878b4] font-medium tracking-tight">Organizada pela Inteligência Artificial</p>
+            <span class="block tracking-[0.18em] uppercase text-white" style="font-size:20px; font-weight:700; line-height:1.2;">
+              LumosCam
+            </span>
+            <h1 class="truncate text-blue-100" style="font-size:15px; font-weight:500; line-height:1.3;">
+              Sua Galeria
+            </h1>
+            <p class="text-xs mt-0.5 text-blue-100/80">Organizada pela Inteligência Artificial</p>
           </div>
         </div>
       </header>

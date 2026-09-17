@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Comunidade — LumosCam</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Bootstrap Icons para o topo -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+  
+  <!-- Lucide Icons para a Nav -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="/CSS/CommunityView.css" />
+</head>
+<body class="bg-slate-200 min-h-screen flex items-center justify-center p-0 sm:p-6">
+
+  <!-- Corrigido o fechamento da tag (>) que faltava aqui -->
+  <div
+    id="app-frame"
+    class="w-full max-w-md h-[100dvh] sm:h-[844px] bg-white overflow-hidden relative sm:rounded-[2.5rem] sm:border sm:border-slate-300 sm:shadow-2xl flex flex-col"
+  >
+
+    <div id="community-view" class="h-full bg-white flex flex-col relative">
+
+      <header class="relative overflow-hidden bg-blue-600 text-white shrink-0">
+        <div class="absolute -top-16 -right-12 w-48 h-48 rounded-full bg-blue-400/30 blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-20 -left-10 w-44 h-44 rounded-full bg-blue-300/20 blur-2xl pointer-events-none"></div>
+
+        <div class="relative px-4 pt-6 pb-4 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/15 backdrop-blur border border-white/20 shrink-0">
+            <i class="bi bi-people" style="font-size:18px" aria-hidden="true"></i>
+          </div>
+
+          <div class="flex-1 min-w-0">
+            <span class="block tracking-[0.18em] uppercase text-white" style="font-size:20px; font-weight:700; line-height:1.2;">
+              LumosCam
+            </span>
+            <h1 class="truncate text-blue-100" style="font-size:15px; font-weight:500; line-height:1.3;">
+              Comunidade
+            </h1>
+            <p class="text-xs mt-0.5 text-blue-100/80">Compartilhe presets e fotos</p>
+          </div>
+
+          <button
+            type="button"
+            id="btn-open-compose"
+            class="w-10 h-10 rounded-full bg-white/15 backdrop-blur border border-white/25 text-white flex items-center justify-center transition hover:bg-white/25 active:scale-95 shrink-0"
+            aria-label="Criar publicação"
+          >
+            <i class="bi bi-plus-lg" style="font-size:20px" aria-hidden="true"></i>
+          </button>
+        </div>
+      </header>
+
+      <div
+        id="filters"
+        class="flex gap-2 px-4 py-3 border-b border-slate-100 shrink-0"
+        role="tablist"
+        aria-label="Filtrar publicações"
+      >
+        <button type="button" class="filter-btn px-4 py-1.5 rounded-full text-sm transition" data-filter="Tudo" role="tab" aria-selected="true">Tudo</button>
+        <button type="button" class="filter-btn px-4 py-1.5 rounded-full text-sm transition" data-filter="Fotos" role="tab" aria-selected="false">Fotos</button>
+        <button type="button" class="filter-btn px-4 py-1.5 rounded-full text-sm transition" data-filter="Presets" role="tab" aria-selected="false">Presets</button>
+      </div>
+
+      <div id="feed" class="flex-1 overflow-y-auto pb-4" aria-live="polite"></div>
+
+      <div
+        id="compose-backdrop"
+        class="hidden absolute inset-0 z-30 bg-black/50 flex items-end"
+        aria-hidden="true"
+      >
+        <div
+          id="compose-sheet"
+          class="w-full bg-white rounded-t-3xl p-5 pb-7"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="compose-title"
+        >
+          <div class="flex items-center justify-between mb-4">
+            <h3 id="compose-title" class="text-slate-900" style="font-size:18px; font-weight:600;">
+              Compartilhar na comunidade
+            </h3>
+            <button type="button" id="btn-close-compose" class="text-slate-400 hover:text-slate-600 transition" aria-label="Fechar">
+              <i class="bi bi-x-lg" style="font-size:20px" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div class="grid grid-cols-2 gap-2 mb-4">
+            <button type="button" id="type-photo" class="type-btn flex items-center justify-center gap-2 py-3 rounded-xl border transition" data-type="photo">
+              <i class="bi bi-camera" style="font-size:18px" aria-hidden="true"></i>
+              <span class="text-sm">Foto</span>
+            </button>
+            <button type="button" id="type-preset" class="type-btn flex items-center justify-center gap-2 py-3 rounded-xl border transition" data-type="preset">
+              <i class="bi bi-stars" style="font-size:18px" aria-hidden="true"></i>
+              <span class="text-sm">Preset</span>
+            </button>
+          </div>
+
+          <input
+            id="compose-input"
+            type="text"
+            placeholder="Legenda da foto"
+            maxlength="80"
+            autocomplete="off"
+            class="w-full bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 mb-4"
+          />
+
+          <button
+            type="button"
+            id="btn-publish"
+            disabled
+            class="w-full bg-blue-600 text-white rounded-xl py-3 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed transition"
+          >
+            <i class="bi bi-check-lg" style="font-size:18px" aria-hidden="true"></i>
+            Publicar
+          </button>
+        </div>
+      </div>
+
+      <div
+        id="comments-backdrop"
+        class="hidden absolute inset-0 z-30 bg-black/50 flex items-end"
+        aria-hidden="true"
+      >
+        <div
+          id="comments-sheet"
+          class="w-full bg-white rounded-t-3xl p-5 pb-6 max-h-[75%] flex flex-col"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="comments-title"
+        >
+          <div class="flex items-center justify-between mb-4 shrink-0">
+            <h3 id="comments-title" class="text-slate-900 truncate pr-2" style="font-size:18px; font-weight:600;">
+              Comentários
+            </h3>
+            <button type="button" id="btn-close-comments" class="text-slate-400 hover:text-slate-600 transition shrink-0" aria-label="Fechar">
+              <i class="bi bi-x-lg" style="font-size:20px" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <div id="comments-list" class="flex-1 overflow-y-auto space-y-3 mb-4"></div>
+
+          <form id="comment-form" class="flex items-center gap-2 shrink-0">
+            <input
+              id="comment-input"
+              type="text"
+              placeholder="Adicione um comentário..."
+              maxlength="200"
+              autocomplete="off"
+              class="flex-1 bg-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            />
+            <button
+              type="submit"
+              class="w-11 h-11 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0 hover:bg-blue-700 active:scale-95 transition"
+              aria-label="Enviar comentário"
+            >
+              <i class="bi bi-send-fill" style="font-size:15px" aria-hidden="true"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        id="toast-container"
+        class="pointer-events-none absolute left-0 right-0 top-4 z-50 flex flex-col items-center gap-2 px-4"
+        aria-live="assertive"
+      ></div>
+
+     <nav class="flex justify-around items-center h-[68px] pb-3 pt-2 bg-white border-t border-slate-200 shrink-0 z-20">
+  <a href="index.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+    <i data-lucide="home" class="w-[22px] h-[22px]"></i>
+    <span class="text-[10px] font-medium">Início</span>
+  </a>
+  <a href="filtros.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+    <i data-lucide="sliders-horizontal" class="w-[22px] h-[22px]"></i>
+    <span class="text-[10px] font-medium">Filtros</span>
+  </a>
+  <a href="camera.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+    <i data-lucide="camera" class="w-[22px] h-[22px]"></i>
+    <span class="text-[10px] font-medium">Câmera</span>
+  </a>
+  <!-- ITEM ATIVO: Comunidade -->
+  <a href="comunidade.html" class="flex flex-col items-center justify-center w-14 gap-1 text-[#0f2441] transition-colors">
+    <i data-lucide="users" class="w-[22px] h-[22px]"></i>
+    <span class="text-[10px] font-bold">Comunidade</span>
+  </a>
+  <!-- ITEM INATIVO: Galeria -->
+  <a href="galeria.html" class="flex flex-col items-center justify-center w-14 gap-1 text-slate-400 hover:text-slate-600 transition-colors">
+    <i data-lucide="image" class="w-[22px] h-[22px]"></i>
+    <span class="text-[10px] font-medium">Galeria</span>
+  </a>
+</nav>
+
+    </div>
+
+  </div>
+
+  <script src="/JS/CommunityView.js"></script>
+  <script>
+    // Inicializa os ícones do Lucide
+    lucide.createIcons();
+  </script>
+</body>
+</html>
